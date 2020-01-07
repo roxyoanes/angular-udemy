@@ -3,7 +3,11 @@ import {
   OnInit,
   Input,
   OnChanges,
-  SimpleChanges
+  SimpleChanges,
+  DoCheck,
+  ViewChild,
+  ElementRef,
+  ContentChild
 } from '@angular/core';
 
 @Component({
@@ -11,8 +15,10 @@ import {
   templateUrl: './server-element.component.html',
   styleUrls: ['./server-element.component.css']
 })
-export class ServerElementComponent implements OnInit, OnChanges {
+export class ServerElementComponent implements OnInit, OnChanges, DoCheck {
  @Input("srvElement") element: { type: string, name: string, content: string };
+ @ViewChild('heading', {static:true}) header: ElementRef;
+ @ContentChild('contentParagraph', {static: true}) paragraph: ElementRef;
 
   constructor() { }
 
@@ -21,6 +27,10 @@ export class ServerElementComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+  }
+
+  ngDoCheck(){
+
   }
 
 }
