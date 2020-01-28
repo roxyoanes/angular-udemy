@@ -9,7 +9,6 @@ import { NewAccountComponent } from './new-account/new-account.component';
 import { AccountsService } from './accounts.service';
 import { LoggingService } from './logging.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
